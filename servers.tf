@@ -3,8 +3,11 @@ resource "aws_instance" "web" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "HelloWorld"
+    Name = "web"
   }
+}
+output "web" {
+value = aws_instance.web.public_ip
 }
 resource "aws_instance" "mongodb" {
   ami           = "ami-03265a0778a880afb"
@@ -14,6 +17,9 @@ resource "aws_instance" "mongodb" {
     Name = "mongodb"
   }
 }
+output "mongodb" {
+value = aws_instance.mongodb.public_ip
+}
 resource "aws_instance" "frontend" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
@@ -21,6 +27,9 @@ resource "aws_instance" "frontend" {
   tags = {
     Name = "frontend"
   }
+}
+output "frontend" {
+value = aws_instance.frontend.public_ip
 }
 resource "aws_instance" "catalog" {
   ami           = "ami-03265a0778a880afb"
