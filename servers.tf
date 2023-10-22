@@ -1,5 +1,5 @@
-data "aws_security_group" "allw-all"{
-  name = "allw-all"
+data "aws_security_group" "allow-all"{
+  name = "allow-all"
 }
 
 resource "aws_instance" "web" {
